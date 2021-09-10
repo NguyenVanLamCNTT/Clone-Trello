@@ -10,6 +10,10 @@ const routes: Routes = [
     component: AuthComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'login'
+      },
+      {
         path: 'login',
         component: LoginComponent
       },

@@ -1,0 +1,14 @@
+.logo{
+  width: 200px;
+  height: 200px;
+}
+.form-item {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 10px;
+}
+.body{
+  background-color: rgba(240,240,240,1.2);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
