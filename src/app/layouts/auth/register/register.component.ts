@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+import {AuthService} from '../../../share/services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -23,9 +24,47 @@ export class RegisterComponent implements OnInit {
   errPhone = '';
   errEmail = '';
   errEnterPassword = '';
-  constructor() { }
+  err = false;
+  notify = '';
+  success = '';
+  classTitle = '';
+  btnYes = false;
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+  submitRegister(err: boolean): void {
+    if (err === true){
+      const data = {
+        username: this.restForm.value.username,
+        password: this.restForm.value.password,
+        firstname: this.restForm.value.firstname,
+        lastname: this.restForm.value.lastname,
+        phone: this.restForm.value.phone,
+        email: this.restForm.value.email
+      };
+      this.authService.register(data).subscribe(
+        res => {
+          this.notify = 'Bạn có muốn đi đến trang đăng nhập?';
+          this.success = 'Bạn đã đăng ký thành công!';
+          this.classTitle = 'true';
+          this.btnYes = true;
+        }, error => {
+          console.log(error);
+          this.classTitle = 'false';
+          this.success = 'Đăng ký thất bại!';
+          this.notify = error.error.message;
+        }
+      );
+    }else {
+      console.log('err!');
+    }
+  }
+  checkError(): void{
+    // tslint:disable-next-line:max-line-length
+    if (this.errUsername === '' && this.errPassword === '' && this.errLastname === '' && this.errFirstname === '' && this.errEmail === '' && this.errPhone === '' && this.errEnterPassword === ''){
+      this.err = true;
+    }
   }
   Regex(): void {
     const regUsername = /^[a-z0-9]{0,30}$/;
@@ -83,5 +122,4 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-
 }
