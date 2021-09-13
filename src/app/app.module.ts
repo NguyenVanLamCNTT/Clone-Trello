@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './layouts/auth/auth.component';
 import {HttpClientModule} from '@angular/common/http';
+import { DisplayComponent } from './layouts/display/display.component';
 
 
 
@@ -12,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     AuthComponent,
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
