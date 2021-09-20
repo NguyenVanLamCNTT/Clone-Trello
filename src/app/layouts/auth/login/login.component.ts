@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.restForm.value).subscribe(
         res => {
           this.tokenCookie.saveToken(res.body.token);
+          this.tokenCookie.saveUsername(this.restForm.value.username);
           this.router.navigate(['/display']);
         }, error => {
           this.notify = error.error.message;

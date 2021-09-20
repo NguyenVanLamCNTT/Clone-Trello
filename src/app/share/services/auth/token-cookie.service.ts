@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 
 const TOKEN_KEY = 'token';
+const USERNAME_KEY = 'username';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,5 +17,12 @@ export class TokenCookieService {
   }
   public logout(): void{
     this.cookieService.deleteAll();
+  }
+  public saveUsername(username: string): void{
+    this.cookieService.delete(USERNAME_KEY);
+    this.cookieService.set(USERNAME_KEY, username);
+  }
+  public getUsername(): any{
+    return this.cookieService.get(USERNAME_KEY);
   }
 }
