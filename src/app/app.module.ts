@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './layouts/auth/auth.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DisplayComponent } from './layouts/display/display.component';
+import { NavbarComponent } from './share/ui/navbar/navbar.component';
 
 
 
@@ -14,6 +15,7 @@ import { DisplayComponent } from './layouts/display/display.component';
     AppComponent,
     AuthComponent,
     DisplayComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

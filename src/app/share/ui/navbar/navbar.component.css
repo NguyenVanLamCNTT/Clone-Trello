@@ -1,0 +1,27 @@
+.item{
+  margin-right: 5px;
+  background-color: #4e97c2;
+}
+.item_1{
+  margin-right: 0px;
+  background-color: #4e97c2;
+  font-size: 12px;
+}
+.title{
+  text-decoration: none;
+  font-size: 28px;
+  color: #80b4d3;
+}
+.title:hover{
+  color: white;
+}
+.img{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.img_1{
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
